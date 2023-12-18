@@ -1,0 +1,98 @@
+
+<ng-container *ngIf="movieDetails && !showLoader">
+
+    <mat-dialog-content class="details-content">
+        <div class="row">
+            <div class="col-md-3 col-sm-12">
+                <div class="text-center">
+                    <img class="poster img-fluid" [src]="movieDetails.Poster" [alt]="movieDetails.Title">
+                </div>
+    
+            </div>
+            <div class="col-md-9 col-sm-12 details-section">
+                <label class="w-100 title">{{movieDetails.Title}} <span
+                        class="year">({{movieDetails.Released}})</span></label>
+                <p class="plot">
+                    {{readMore ? movieDetails.Plot.substring(0,200) : movieDetails.Plot}} <label
+                        *ngIf="(movieDetails.Plot.length || 0) > 200 " class="read-more" (click)="readMore = !readMore">Read
+                        {{readMore ? 'More' : 'Less'}}</label>
+                </p>
+    
+                <!-- <div class="row">
+                    <div class="col-md-3">
+                        <label class="grey-text w-100">IMDB</label>
+                        <label>{{movieDetails.imdbRating}}</label>
+                    </div>
+                    <div class="col-md-3" *ngFor="let rating of movieDetails.Ratings">
+                        <label class="grey-text w-100">{{rating.Source}}</label>
+                        <label>{{rating.Value}}</label>
+                    </div>
+                </div> -->
+    
+    
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="grey-text w-100">Year</label>
+                        <label>{{movieDetails.Year}}</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="grey-text w-100">Type</label>
+                        <label>{{movieDetails.Type}}</label>
+                    </div>
+    
+                    <div class="col-md-3">
+                        <label class="grey-text w-100">IMDb Rating</label>
+                        <label>{{movieDetails.imdbRating}}/10</label>
+                    </div>
+    
+                </div>
+    
+    
+    
+                <div class="d-flex chip-main-container">
+                    <label class="grey-text ">Genre: </label>
+                    <div class="chip-container flex-grow-1">
+                        <label class="chip" *ngFor="let genre of movieDetails.Genre.split(',')">{{genre}}</label>
+                    </div>
+    
+                </div>
+    
+                <div class="d-flex chip-main-container">
+                    <label class="grey-text ">Director: </label>
+                    <div class="chip-container flex-grow-1">
+                        <label class="chip" *ngFor="let genre of movieDetails.Director.split(',')">{{genre}}</label>
+                    </div>
+    
+                </div>
+                <div class="d-flex chip-main-container">
+                    <label class="grey-text ">Actors: </label>
+                    <div class="chip-container flex-grow-1">
+                        <label class="chip" *ngFor="let genre of movieDetails.Actors.split(',')">{{genre}}</label>
+                    </div>
+    
+                </div>
+                <div class="d-flex chip-main-container">
+                    <label class="grey-text ">Awards: </label>
+                    <div class="chip-container flex-grow-1">
+                        <label class="chip" *ngFor="let genre of movieDetails.Awards.split(',')">{{genre}}</label>
+                    </div>
+    
+                </div>
+    
+            </div>
+        </div>
+    
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+    </mat-dialog-actions>
+</ng-container>
+
+
+<div *ngIf="showLoader">
+    <mat-dialog-content >
+        <mat-spinner></mat-spinner>
+    </mat-dialog-content>
+   
+
+</div>

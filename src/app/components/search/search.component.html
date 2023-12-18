@@ -1,0 +1,65 @@
+<div class="d-flex header">
+    <label class="app-name m-0">Movie Reviews</label>
+    <button class="btn" routerLink="/">Home</button>
+
+</div>
+
+<div class="loader" *ngIf="showLoader">
+    <mat-progress-bar mode="query"></mat-progress-bar>
+
+</div>
+
+
+
+<div class="container search-container">
+    <mat-card>
+
+
+        <mat-form-field class="w-100">
+            <input matInput [formControl]="ctrlSearch" placeholder="Search By Movie Title">
+            <button mat-flat-button matSuffix class="search-btn" (click)="searchByTitle()">Search</button>
+        </mat-form-field>
+
+        <div>
+
+            <table mat-table [dataSource]="dataSource" class="w-100 search-table">
+               
+
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Title">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Title}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Year">
+                    <th mat-header-cell *matHeaderCellDef> Year </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Year}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Type">
+                    <th mat-header-cell *matHeaderCellDef> Type </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Type | titlecase}} </td>
+                </ng-container>
+
+                
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+                <tr (click)="loadDetailsByID(row.imdbID)" mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+                <tr class="mat-row no-data" *matNoDataRow>
+                    <td class="mat-cell" colspan="3">
+                        <div class="empty-container text-center"> {{  'No Data Found' }}</div>   
+                    </td>
+                  </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[10]" [length]="totalSearchResults" (page)="handlePageEvent($event)"
+                showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
+
+
+    </mat-card>
+</div>

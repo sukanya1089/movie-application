@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('./../node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.header{
+    background-color: cornflowerblue;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+    .app-name{
+        color: white;
+        font-size: 30px;
+    }
+
+    .btn {
+        color: white;
+        border: 1px solid white;
+    }
+}

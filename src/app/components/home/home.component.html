@@ -1,0 +1,42 @@
+<div class="d-flex header">
+    <label class="app-name m-0">Movie Reviews</label>
+    <button class="btn" routerLink="/search">Search</button>
+</div>
+
+
+<div class="container main-container">
+
+    <mat-card class="movie-card" *ngFor="let data of movieDetails">
+
+        <div class="row">
+            <div class="col-md-2 col-sm-12">
+                <div class="text-center">
+                    <img  class="poster img-fluid" [src]="data?.Poster" [alt]="data?.Title">
+                </div>
+            
+            </div>
+            <div class="col-md-10 col-sm-12 details-section">
+                <label class="w-100 title">{{data?.Title}} <span class="year">({{data?.Year}})</span></label>
+                <p  class="plot">
+                    {{data?.Plot}}
+                </p>
+
+                <div>
+                    <label class="awards">Awards: </label>
+
+                   <span class="award-chip" *ngFor="let award of data?.Awards?.split(',')">
+                    {{award}}
+                   </span>
+                </div>
+
+               
+                  
+            </div>
+        </div>
+
+        <mat-card-content>
+
+        </mat-card-content>
+    </mat-card>
+
+</div>

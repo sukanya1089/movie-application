@@ -1,0 +1,49 @@
+.header{
+   
+    
+}
+
+
+.main-container{
+    margin-top: 100px;
+
+    .movie-card{
+
+        margin-bottom: 24px;
+        overflow: hidden;
+
+        .poster{
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .details-section{
+            padding: 20px;
+            .title{
+                font-size: 40px;
+                font-weight: 600;
+                line-height: 40px;
+                
+                .year {
+                    font-size: 20px;
+    
+                }
+            }
+
+            .plot{
+                margin-top: 20px;
+            }
+
+            .award-chip{
+
+                padding: 5px 10px;
+                background-color: beige;
+                border-radius: 50px;
+                margin-left: 20px;
+            }
+    
+        }
+
+       
+    }
+}

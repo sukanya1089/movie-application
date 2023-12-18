@@ -1,0 +1,59 @@
+.details-content{
+    
+
+.poster{
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.details-section{
+    padding: 20px;
+    .title{
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 30px;
+        
+        .year {
+            font-size: 20px;
+
+        }
+    }
+
+    .plot{
+        margin-top: 20px;
+
+        .read-more{
+            color:cornflowerblue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    .grey-text{
+        color: gray;
+        margin-top: 10px;
+        width: 50px;
+    }
+
+    .chip-main-container{
+        gap: 20px;
+        justify-content: start;
+        align-items: center;
+        margin-top: 20px;
+
+        .grey-text{
+            margin-top: 0px;
+        }
+        .chip-container{
+            .chip{
+                padding: 5px 10px;
+                background-color: beige;
+                border-radius: 50px;
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+}
